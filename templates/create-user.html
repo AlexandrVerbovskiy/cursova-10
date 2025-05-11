@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+
+{% block title %}Create User{% endblock %}
+
+{% block content %}
+<div class="page d-flex flex-row flex-column-fluid">
+    <!--begin::Wrapper-->
+    <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+        <!--begin::Header-->
+        <div id="kt_header" class="header header-bg">
+            <!--begin::Container-->
+            <div class="container-fluid">
+                <!--begin::Brand-->
+                <div class="header-brand me-5">
+                    <!--begin::Aside toggle-->
+                    <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show aside menu">
+                        <div class="btn btn-icon btn-color-white btn-active-color-primary w-30px h-30px"
+                             id="kt_aside_toggle">
+                            <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
+                            <span class="svg-icon svg-icon-1">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+												<path d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z"
+                                                      fill="currentColor"/>
+												<path opacity="0.3"
+                                                      d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z"
+                                                      fill="currentColor"/>
+											</svg>
+										</span>
+                            <!--end::Svg Icon-->
+                        </div>
+                    </div>
+                    <!--end::Aside toggle-->
+                    <!--begin::Logo-->
+                    <a href="/">
+                        <img alt="Logo" src="/static/media/logos/default-dark.svg"
+                             class="h-25px h-lg-30px d-none d-md-block"/>
+                        <img alt="Logo" src="/static/media/logos/default-small.svg" class="h-25px d-block d-md-none"/>
+                    </a>
+                    <!--end::Logo-->
+                </div>
+                <!--end::Brand-->
+                <!--begin::Topbar-->
+                <div class="topbar d-flex align-items-stretch">
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center me-2 me-lg-4">
+                        <a href="/system" class="btn btn-primary border-0 px-3 px-lg-6">System</a>
+                    </div>
+                    <!--end::Item-->
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center me-2 me-lg-4">
+                        <a href="/users" class="btn btn-primary border-0 px-3 px-lg-6">Manage Users</a>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center me-2 me-lg-4">
+                        <a href="/airlines" class="btn btn-primary border-0 px-3 px-lg-6">Manage Airlines</a>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center me-2 me-lg-4">
+                        <a href="/logout" class="btn btn-danger border-0 px-3 px-lg-6">Logout</a>
+                    </div>
+                    <!--end::Item-->
+                </div>
+                <!--end::Topbar-->
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::Header-->
+        <!--begin::Content-->
+        <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+            <!--begin::Post-->
+            <div class="post d-flex flex-column-fluid" id="kt_post">
+                <!--begin::Container-->
+                <div id="kt_content_container" class="container-xxl">
+                    <!--begin::Card-->
+                    <div class="card">
+                        <!--begin::Card header-->
+                        <div class="card-header">
+                            <!--begin::Card title-->
+                            <div class="card-title fs-3 fw-bold">Create User</div>
+                            <!--end::Card title-->
+                        </div>
+                        <!--end::Card header-->
+                        <!--begin::Form-->
+                        <form id="kt_project_settings_form" class="form" action="/create-user" method="post">
+                            <!--begin::Card body-->
+                            <div class="card-body p-9">
+                                <!--begin::Row-->
+                                <div class="row mb-8">
+                                    <!--begin::Col-->
+                                    <div class="col-xl-3">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Nick</div>
+                                    </div>
+                                    <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="col-xl-9 fv-row">
+                                        <input type="text" class="form-control form-control-solid" name="nick"
+                                               value="{{ form.nick.data }}"/>
+                                    </div>
+                                </div>
+                                <!--end::Row-->
+
+                                <!--begin::Row-->
+                                <div class="row mb-8">
+                                    <!--begin::Col-->
+                                    <div class="col-xl-3">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Email</div>
+                                    </div>
+                                    <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="col-xl-9 fv-row">
+                                        <input type="text" class="form-control form-control-solid" name="email"
+                                               value="{{ form.email.data }}"/>
+                                    </div>
+                                </div>
+                                <!--end::Row-->
+
+                                <!--begin::Row-->
+                                <div class="row mb-8">
+                                    <!--begin::Col-->
+                                    <div class="col-xl-3">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Password</div>
+                                    </div>
+                                    <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="col-xl-9 fv-row">
+                                        <input type="text" class="form-control form-control-solid" name="password"
+                                               value=""/>
+                                    </div>
+                                </div>
+                                <!--end::Row-->
+
+                                <!--begin::Row-->
+                                <div class="row">
+                                    <!--begin::Col-->
+                                    <div class="col-xl-3">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Admin</div>
+                                    </div>
+                                    <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="col-xl-9">
+                                        <div class="form-check form-switch form-check-custom form-check-solid">
+                                            <input class="form-check-input" type="checkbox" value="True" id="admin"
+                                                   name="admin" {% if form.admin.data %}checked{% endif %}/>
+                                            <label class="form-check-label fw-semibold text-gray-400 ms-3" for="admin">Admin</label>
+                                        </div>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+                                <!--end::Row-->
+                            </div>
+                            <!--end::Card body-->
+                            <!--begin::Card footer-->
+                            <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                <a href="/users" class="btn btn-light btn-active-light-primary me-2">Cancel</a>
+                                <button type="submit" class="btn btn-primary" id="kt_project_settings_submit">Save
+                                    Create
+                                </button>
+                            </div>
+                            <!--end::Card footer-->
+                        </form>
+                        <!--end:Form-->
+                    </div>
+                    <!--end::Card-->
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::Post-->
+        </div>
+        <!--end::Content-->
+        <!--begin::Footer-->
+        <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+            <!--begin::Container-->
+            <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <!--begin::Copyright-->
+                <div class="text-dark order-2 order-md-1">
+                    <span class="text-muted fw-semibold me-1">2025&copy;</span>
+                    <a href="https://keenthemes.com" target="_blank"
+                       class="text-gray-800 text-hover-primary">Alex.B.</a>
+                </div>
+                <!--end::Copyright-->
+                <!--begin::Menu-->
+                <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                    <li class="menu-item">
+                        <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+                    </li>
+                </ul>
+                <!--end::Menu-->
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::Footer-->
+    </div>
+    <!--end::Wrapper-->
+</div>
+{% endblock %}

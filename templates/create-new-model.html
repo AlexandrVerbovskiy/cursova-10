@@ -1,0 +1,361 @@
+{% extends "layout.html" %}
+
+{% block title %}Create Model{% endblock %}
+
+{% block content %}
+<div class="page d-flex flex-row flex-column-fluid">
+    <!--begin::Wrapper-->
+    <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+        <!--begin::Header-->
+        <div id="kt_header" class="header header-bg">
+            <!--begin::Container-->
+            <div class="container-fluid">
+                <!--begin::Brand-->
+                <div class="header-brand me-5">
+                    <!--begin::Aside toggle-->
+                    <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show aside menu">
+                        <div class="btn btn-icon btn-color-white btn-active-color-primary w-30px h-30px"
+                             id="kt_aside_toggle">
+                            <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
+                            <span class="svg-icon svg-icon-1">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+												<path d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z"
+                                                      fill="currentColor"/>
+												<path opacity="0.3"
+                                                      d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z"
+                                                      fill="currentColor"/>
+											</svg>
+										</span>
+                            <!--end::Svg Icon-->
+                        </div>
+                    </div>
+                    <!--end::Aside toggle-->
+                    <!--begin::Logo-->
+                    <a href="/">
+                        <img alt="Logo" src="/static/media/logos/default-dark.svg"
+                             class="h-25px h-lg-30px d-none d-md-block"/>
+                        <img alt="Logo" src="/static/media/logos/default-small.svg" class="h-25px d-block d-md-none"/>
+                    </a>
+                    <!--end::Logo-->
+                </div>
+                <!--end::Brand-->
+                <!--begin::Topbar-->
+                <div class="topbar d-flex align-items-stretch">
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center me-2 me-lg-4">
+                        <a href="/system" class="btn btn-primary border-0 px-3 px-lg-6">System</a>
+                    </div>
+                    <!--end::Item-->
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center me-2 me-lg-4">
+                        <a href="/users" class="btn btn-primary border-0 px-3 px-lg-6">Manage Users</a>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center me-2 me-lg-4">
+                        <a href="/airlines" class="btn btn-primary border-0 px-3 px-lg-6">Manage Airlines</a>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center me-2 me-lg-4">
+                        <a href="/logout" class="btn btn-danger border-0 px-3 px-lg-6">Logout</a>
+                    </div>
+                    <!--end::Item-->
+                </div>
+                <!--end::Topbar-->
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::Header-->
+        <!--begin::Content-->
+        <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+            <!--begin::Post-->
+            <div class="post d-flex flex-column-fluid" id="kt_post">
+                <!--begin::Container-->
+                <div id="kt_content_container" class="container-xxl">
+                    <div class="card card-flush">
+                        <!--begin::Card header-->
+                        <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                            <div class="card-title fs-3 fw-bold">Create Model</div>
+
+                            <!--begin::Card toolbar-->
+                            <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                                <button type="button"
+                                        class="btn btn-primary" onclick="approveGenerating()">Approve Generating
+                                </button>
+                            </div>
+                            <!--end::Card toolbar-->
+                        </div>
+                        <!--end::Card header-->
+                        <!--begin::Card body-->
+                        <div class="card-body pt-0">
+                            <div class="row g-10">
+                                <!--begin::Col-->
+                                <div class="col-md-4">
+                                    <!--begin::Feature post-->
+                                    <div class="card-xl-stretch me-md-6">
+                                        <!--begin::Image-->
+                                        <span class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5"
+                                              style="background-image:url('/images/create/airline_id_vs_delay.png')">
+                                        </span>
+                                        <!--end::Image-->
+                                        <!--begin::Body-->
+                                        <div class="m-0">
+                                            <!--begin::Title-->
+                                            <div
+                                                    class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base d-flex align-items-center gap-2">
+                                                <input
+                                                        type="checkbox" value="airline_id"
+                                                        class="form-check-input w-20px h-20px" name="airline_id" {% if
+                                                'airline_id' in recommended_fields %}checked{% endif %}/>
+                                                Airline to Delay
+                                            </div>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Feature post-->
+                                </div>
+                                <!--end::Col-->
+
+                                <!--begin::Col-->
+                                <div class="col-md-4">
+                                    <!--begin::Feature post-->
+                                    <div class="card-xl-stretch me-md-6">
+                                        <!--begin::Image-->
+                                        <span class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5"
+                                              style="background-image:url('/images/create/start_airport_id_vs_delay.png')">
+                                        </span>
+                                        <!--end::Image-->
+                                        <!--begin::Body-->
+                                        <div class="m-0">
+                                            <!--begin::Title-->
+                                            <div
+                                                    class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base d-flex align-items-center gap-2">
+                                                <input
+                                                        type="checkbox" value="start_airport_id"
+                                                        class="form-check-input w-20px h-20px" name="start_airport_id"
+                                                        {% if
+                                                'start_airport_id' in recommended_fields %}checked{% endif %}/>
+                                                Airport From to Delay
+                                            </div>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Feature post-->
+                                </div>
+                                <!--end::Col-->
+
+                                <!--begin::Col-->
+                                <div class="col-md-4">
+                                    <!--begin::Feature post-->
+                                    <div class="card-xl-stretch me-md-6">
+                                        <!--begin::Image-->
+                                        <span class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5"
+                                              style="background-image:url('/images/create/end_airport_id_vs_delay.png')">
+                                        </span>
+                                        <!--end::Image-->
+                                        <!--begin::Body-->
+                                        <div class="m-0">
+                                            <!--begin::Title-->
+                                            <div
+                                                    class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base d-flex align-items-center gap-2">
+                                                <input
+                                                        type="checkbox" value="end_airport_id"
+                                                        class="form-check-input w-20px h-20px" name="end_airport_id"
+                                                        {% if
+                                                'end_airport_id' in recommended_fields %}checked{% endif %}/>
+                                                Airport To to Delay
+                                            </div>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Feature post-->
+                                </div>
+                                <!--end::Col-->
+
+                                <!--begin::Col-->
+                                <div class="col-md-4">
+                                    <!--begin::Feature post-->
+                                    <div class="card-xl-stretch me-md-6">
+                                        <!--begin::Image-->
+                                        <span class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5"
+                                              style="background-image:url('/images/create/day_of_week_vs_delay.png')">
+                                        </span>
+                                        <!--end::Image-->
+                                        <!--begin::Body-->
+                                        <div class="m-0">
+                                            <!--begin::Title-->
+                                            <div
+                                                    class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base d-flex align-items-center gap-2">
+                                                <input
+                                                        type="checkbox" value="day_of_week"
+                                                        class="form-check-input w-20px h-20px" name="day_of_week"
+                                                        {% if
+                                                'day_of_week' in recommended_fields %}checked{% endif %}/>
+                                                Day of Week to Delay
+                                            </div>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Feature post-->
+                                </div>
+                                <!--end::Col-->
+
+                                <!--begin::Col-->
+                                <div class="col-md-4">
+                                    <!--begin::Feature post-->
+                                    <div class="card-xl-stretch me-md-6">
+                                        <!--begin::Image-->
+                                        <span class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5"
+                                              style="background-image:url('/images/create/flight_number_id_vs_delay.png')">
+                                        </span>
+                                        <!--end::Image-->
+                                        <!--begin::Body-->
+                                        <div class="m-0">
+                                            <!--begin::Title-->
+                                            <div
+                                                    class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base d-flex align-items-center gap-2">
+                                                <input
+                                                        type="checkbox" value="flight_number_id"
+                                                        class="form-check-input w-20px h-20px" name="flight_number_id"
+                                                        {% if
+                                                'flight_number_id' in recommended_fields %}checked{% endif %}/>
+                                                Flight Number to Delay
+                                            </div>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Feature post-->
+                                </div>
+                                <!--end::Col-->
+
+                                <!--begin::Col-->
+                                <div class="col-md-4">
+                                    <!--begin::Feature post-->
+                                    <div class="card-xl-stretch me-md-6">
+                                        <!--begin::Image-->
+                                        <span class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5"
+                                              style="background-image:url('/images/create/length_vs_delay.png')">
+                                        </span>
+                                        <!--end::Image-->
+                                        <!--begin::Body-->
+                                        <div class="m-0">
+                                            <!--begin::Title-->
+                                            <div
+                                                    class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base d-flex align-items-center gap-2">
+                                                <input
+                                                        type="checkbox" value="length"
+                                                        class="form-check-input w-20px h-20px" name="length" {% if
+                                                'length' in recommended_fields %}checked{% endif %}/>
+                                                Length to Delay
+                                            </div>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Feature post-->
+                                </div>
+                                <!--end::Col-->
+
+                                <!--begin::Col-->
+                                <div class="col-md-4">
+                                    <!--begin::Feature post-->
+                                    <div class="card-xl-stretch me-md-6">
+                                        <!--begin::Image-->
+                                        <span class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5"
+                                              style="background-image:url('/images/create/time_vs_delay.png')">
+                                        </span>
+                                        <!--end::Image-->
+                                        <!--begin::Body-->
+                                        <div class="m-0">
+                                            <!--begin::Title-->
+                                            <div
+                                                    class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base d-flex align-items-center gap-2">
+                                                <input
+                                                        type="checkbox" value="time"
+                                                        class="form-check-input w-20px h-20px" name="time" {% if
+                                                'time' in recommended_fields %}checked{% endif %}/>
+                                                Time to Delay
+                                            </div>
+                                            <!--end::Title-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Feature post-->
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+
+
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::Post-->
+        </div>
+        <!--end::Content-->
+        <!--begin::Footer-->
+        <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+            <!--begin::Container-->
+            <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <!--begin::Copyright-->
+                <div class="text-dark order-2 order-md-1">
+                    <span class="text-muted fw-semibold me-1">2025&copy;</span>
+                    <a href="https://keenthemes.com" target="_blank"
+                       class="text-gray-800 text-hover-primary">Alex.B.</a>
+                </div>
+                <!--end::Copyright-->
+                <!--begin::Menu-->
+                <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                    <li class="menu-item">
+                        <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+                    </li>
+                </ul>
+                <!--end::Menu-->
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::Footer-->
+    </div>
+    <!--end::Wrapper-->
+</div>
+
+<script>
+    const approveGenerating = () => {
+        fetch('/approve-generating', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'time': document.querySelector('[name="time"]').checked,
+                'length': document.querySelector('[name="length"]').checked,
+                'day_of_week': document.querySelector('[name="day_of_week"]').checked,
+                'flight_number_id': document.querySelector('[name="flight_number_id"]').checked,
+                'airline_id': document.querySelector('[name="airline_id"]').checked,
+                'start_airport_id': document.querySelector('[name="start_airport_id"]').checked,
+                'end_airport_id': document.querySelector('[name="end_airport_id"]').checked,
+            })
+        })
+            .then(() => {
+                console.log("finished")
+                window.location.href = '/system'
+            })
+    }
+</script>
+{% endblock %}
