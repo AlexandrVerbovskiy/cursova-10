@@ -90,7 +90,7 @@
                                     <!--begin::Airline Info-->
                                     <div class="d-flex flex-column align-items-start mb-3">
                                         <div class="text-start d-flex justify-content-between w-100">
-                                            <span class="fw-bold text-gray-800 cursor-pointer fs-4">{{ item.airline }} - {{ item.flight_number }}</span>
+                                            <span class="fw-bold text-gray-800 cursor-pointer fs-4">{{ item.airline.name }} - {{ item.flight_number.flight_number }}</span>
                                             {% if item.delay_probability >= 50 %}
                                             <span class="fw-bold text-danger fs-4">{{ item.delay_probability }}%</span>
                                             {% else %}
@@ -102,7 +102,7 @@
 
                                     <!--begin::Flight Details-->
                                     <div class="d-flex flex-column text-start mb-3">
-                                        <span class="text-gray-600"><strong>Airports:</strong> {{ item.airport_from }} - {{ item.airport_to }}</span>
+                                        <span class="text-gray-600"><strong>Airports:</strong> {{ item.airport_from.airport_name }} - {{ item.airport_to.airport_name }}</span>
                                         <span class="text-gray-600"><strong>Start At:</strong> {{ item.start_at }}</span>
                                         <span class="text-gray-600"><strong>Time:</strong> {{ item.time }} mins</span>
                                     </div>

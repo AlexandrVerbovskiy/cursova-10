@@ -491,8 +491,6 @@ def model_dependencies():
         AirlineFlight.delay.isnot(None)
     ).order_by(func.random()).all()
 
-    print("couint: ", len(airlines_data))
-
     data = pd.DataFrame([{
         'airline_id': item.airline_id,
         'flight_number_id': item.flight_number_id,
@@ -560,7 +558,6 @@ def model_dependencies():
     with open(output_file, 'w') as json_file:
         json.dump(dependencies, json_file, indent=4)
 
-    print("finished")
     return dependencies
 
 
