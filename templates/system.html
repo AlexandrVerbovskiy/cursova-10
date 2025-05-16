@@ -136,7 +136,12 @@
                                     <!--end::Email=-->
                                     <!--begin::Email=-->
                                     <td>
-                                        {{item.accuracy}}%
+                                        {% if item.accuracy %}
+                                        {{ item.accuracy | round(2) }}%
+                                        {% else %}
+                                            Unknown percent value
+                                        {% endif %}
+
                                     </td>
                                     <!--end::Email=-->
                                     <!--begin::Email=-->

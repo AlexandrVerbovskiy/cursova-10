@@ -569,7 +569,7 @@ def create_new_model():
     chi2_dict = dependencies['chi2_dict']
 
     # Поріг кореляції та p-value
-    correlation_threshold = 0.1
+    correlation_threshold = 0.7
     p_value_threshold = 0.05
 
     recommended_fields = []
